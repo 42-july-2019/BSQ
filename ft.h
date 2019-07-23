@@ -6,15 +6,18 @@
 /*   By: fmarckma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:29:21 by fmarckma          #+#    #+#             */
-/*   Updated: 2019/07/23 14:06:15 by fmarckma         ###   ########.fr       */
+/*   Updated: 2019/07/23 22:02:15 by fmarckma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_H
 # define FT_H
 
-int		**g_matrix_solution;
-char	**g_map_rep;
+int				**g_matrix_solution;
+char			**g_map_rep;
+int				ft_atoi(const char *str);
+char			*ft_strdup_s(char *src, char c);
+t_map_chars		read_map(char *map_name);
 
 typedef struct	s_map_chars
 {
