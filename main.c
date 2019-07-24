@@ -6,14 +6,15 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:46:34 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/24 14:02:01 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/24 17:04:17 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 #include "ft.h"
 
-void	print_solution(void)
+void			print_solution(void)
 {
 	int i;
 	int j;
@@ -24,31 +25,56 @@ void	print_solution(void)
 		j = 0;
 		while (g_map_rep[i][j])
 			write(1, &g_map_rep[i][j++], 1);
-		write(1, "\n", 1);
+		if (i == 0 || g_map_rep[i + 1])
+			write(1, "\n", 1);
+		if (g_map_rep[i + 1])
+			free(g_map_rep[i]);
 		i++;
+	}
+	free(g_map_rep);
+}
+
+int				search_solution(char *map_name, t_map_params params)
+{
+	t_map_chars map_chars;
+
+	if (params.size == 0)
+		map_chars = read_map(map_name);
+	else
+		map_chars = params.chars;
+	if (map_chars.empty == '\0')
+	{
+		write(2, "map error\n", 10);
+		return (0);
+	}
+	else
+	{
+		//
+		print_solution();
+		return (1);
 	}
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
-	int			i;
-	t_map_chars	map_chars;
+	int				i;
+	t_map_params	params;
 
+	params.size = 0;
 	if (argc >= 2)
 	{
 		i = 1;
 		while (i < argc)
 		{
-			map_chars = read_map(argv[i]);
-			if (map_chars.empty == '\0')
-			{
-				write(2, "map error\n", 10);
-			}
-			else
-			{
-				print_solution();
-			}
+			search_solution(argv[i], params);
+			if (i != argc - 1)
+				write(1, "\n", 1);
 			i++;
 		}
 	}
+	else
+	{
+		read_stdin();
+	}
+	return (0);
 }
