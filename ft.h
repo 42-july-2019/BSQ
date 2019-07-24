@@ -6,7 +6,7 @@
 /*   By: fmarckma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:29:21 by fmarckma          #+#    #+#             */
-/*   Updated: 2019/07/23 22:02:15 by fmarckma         ###   ########.fr       */
+/*   Updated: 2019/07/24 18:21:50 by fmarckma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int				allocate_memory(char *str_read, int size_end);
 void			read_stdin(void);
 t_map_chars		read_map(char *map_name);
 int				search_solution(char *map_name, t_map_params params);
+int				ft_fill(char **g_map_rep, int **g_matrix_sol, t_map_chars pos);
 
 #endif

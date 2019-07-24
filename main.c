@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:46:34 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/24 17:04:17 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/24 18:21:00 by fmarckma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int				search_solution(char *map_name, t_map_params params)
 	}
 	else
 	{
-		//
+		ft_fill(g_map_rep, g_matrix_sol, map_chars);
 		print_solution();
 		return (1);
 	}
