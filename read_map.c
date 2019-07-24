@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 17:12:19 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/23 14:23:08 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:54:15 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,7 @@ t_map_chars		open_map_data(char *map_name, int *map_ref)
 	if (*map_ref == -1)
 		return (result);
 	str_read = "";
-	while (read(*map_ref, curr_char, 1) &&
-			(*curr_char != '\n'))
+	while (read(*map_ref, curr_char, 1) && *curr_char != '\n')
 		str_read = ft_strdup_s(str_read, *curr_char);
 	size_end = last_three_chars(str_read);
 	nb_read = allocate_memory(str_read, size_end);

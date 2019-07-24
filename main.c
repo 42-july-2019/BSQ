@@ -6,18 +6,32 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:46:34 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/23 15:28:33 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/24 14:02:01 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft.h"
 
+void	print_solution(void)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (g_map_rep[i])
+	{
+		j = 0;
+		while (g_map_rep[i][j])
+			write(1, &g_map_rep[i][j++], 1);
+		write(1, "\n", 1);
+		i++;
+	}
+}
+
 int		main(int argc, char **argv)
 {
 	int			i;
-	int			j;
-	int			k;
 	t_map_chars	map_chars;
 
 	if (argc >= 2)
@@ -32,15 +46,7 @@ int		main(int argc, char **argv)
 			}
 			else
 			{
-				j = 0;
-				while (g_map_rep[j])
-				{
-					k = 0;
-					while (g_map_rep[j][k])
-						write(1, &g_map_rep[j][k++], 1);
-					write(1, "\n", 1);
-					j++;
-				}
+				print_solution();
 			}
 			i++;
 		}

@@ -12,7 +12,7 @@
 
 CC		=	gcc	
 
-SRC		=	ft_calcul.c
+SRC		=	$(wildcard *.c)
 
 OBJ		=	$(SRC:%.c=%.o)
 

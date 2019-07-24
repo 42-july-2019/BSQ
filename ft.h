@@ -13,11 +13,8 @@
 #ifndef FT_H
 # define FT_H
 
-int				**g_matrix_solution;
+int				**g_matrix_sol;
 char			**g_map_rep;
-int				ft_atoi(const char *str);
-char			*ft_strdup_s(char *src, char c);
-t_map_chars		read_map(char *map_name);
 
 typedef struct	s_map_chars
 {
@@ -32,5 +29,9 @@ typedef struct	s_pos_map
 	int y;
 	int value;
 }				t_pos_map;
+
+int				ft_atoi(const char *str);
+char			*ft_strdup_s(char *src, char c);
+t_map_chars		read_map(char *map_name);
 
 #endif
